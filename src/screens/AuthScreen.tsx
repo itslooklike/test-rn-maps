@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
 
-interface Props {}
-export default class AuthScreen extends Component<Props> {
-  render() {
+interface IProps {}
+export default class AuthScreen extends Component<IProps> {
+  public render() {
     return (
       <View>
         <Text>AuthScreen</Text>

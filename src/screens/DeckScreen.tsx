@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
 
-interface Props {}
-export default class DeckScreen extends Component<Props> {
-  render() {
+interface IProps {}
+export default class DeckScreen extends Component<IProps> {
+  public render() {
     return (
       <View>
         <Text>DeckScreen</Text>

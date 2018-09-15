@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import styled from 'styled-components';
 
@@ -14,9 +13,9 @@ const Root = styled.View`
   flex: 1;
 `;
 
-interface Props {}
-export default class App extends Component<Props> {
-  render() {
+interface IProps {}
+export default class App extends Component<IProps> {
+  public render() {
     const MainNavigator = createBottomTabNavigator({
       WelcomeScreen: { screen: WelcomeScreen },
       AuthScreen: { screen: AuthScreen },
