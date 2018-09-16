@@ -19,20 +19,27 @@ const Root = styled.View`
 interface IProps {}
 export default class App extends Component<IProps> {
   public render() {
-    const MainNavigator = createBottomTabNavigator({
-      WelcomeScreen: { screen: WelcomeScreen },
-      AuthScreen: { screen: AuthScreen },
-      MainScreen: {
-        screen: createBottomTabNavigator({
-          MapScreen: { screen: MapScreen },
-          DeckScreen: { screen: DeckScreen },
-          ReviewScreen: createStackNavigator({
-            ReviewScreen: { screen: ReviewScreen },
-            SettingsScreen: { screen: SettingsScreen },
+    const MainNavigator = createBottomTabNavigator(
+      {
+        WelcomeScreen: { screen: WelcomeScreen },
+        AuthScreen: { screen: AuthScreen },
+        MainScreen: {
+          screen: createBottomTabNavigator({
+            MapScreen: { screen: MapScreen },
+            DeckScreen: { screen: DeckScreen },
+            ReviewScreen: createStackNavigator({
+              ReviewScreen: { screen: ReviewScreen },
+              SettingsScreen: { screen: SettingsScreen },
+            }),
           }),
-        }),
+        },
       },
-    });
+      {
+        navigationOptions: {
+          tabBarVisible: false,
+        },
+      },
+    );
 
     return (
       <Provider store={store}>

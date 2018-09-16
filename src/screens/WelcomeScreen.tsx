@@ -4,7 +4,7 @@ import { NavigationScreenProps } from 'react-navigation';
 
 import Slides from '../components/Slides';
 import { ISlideArr } from '../interfaces';
-import { signUp, ISignUp } from '../store/ducks/auth';
+import { signIn, ISignIn } from '../store/ducks/auth';
 
 const SLIDES_DATA: ISlideArr = [
   {
@@ -22,7 +22,7 @@ const SLIDES_DATA: ISlideArr = [
 ];
 
 interface IProps extends NavigationScreenProps {
-  signUp: (token: string) => ISignUp;
+  signIn: () => ISignIn;
 }
 
 class WelcomeScreen extends Component<IProps> {
@@ -31,7 +31,7 @@ class WelcomeScreen extends Component<IProps> {
   }
 
   public componentDidMount() {
-    this.props.signUp('some token');
+    this.props.signIn();
   }
 
   public render() {
@@ -41,5 +41,5 @@ class WelcomeScreen extends Component<IProps> {
 
 export default connect(
   null,
-  { signUp },
+  { signIn },
 )(WelcomeScreen);
