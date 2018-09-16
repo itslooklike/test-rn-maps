@@ -9,6 +9,7 @@
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
+    "experimentalDecorators": true,
     "target": "esnext"
   },
   "exclude": ["node_modules"]
