@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import styled from 'styled-components';
+import { Provider } from 'react-redux';
+
+import store from './src/store';
 
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import AuthScreen from './src/screens/AuthScreen';
@@ -32,9 +35,11 @@ export default class App extends Component<IProps> {
     });
 
     return (
-      <Root>
-        <MainNavigator />
-      </Root>
+      <Provider store={store}>
+        <Root>
+          <MainNavigator />
+        </Root>
+      </Provider>
     );
   }
 }
