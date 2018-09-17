@@ -31,7 +31,20 @@ class WelcomeScreen extends Component<IProps> {
   }
 
   public componentDidMount() {
-    this.props.signIn();
+    if (this.props.auth && this.props.auth.token) {
+      this.moveToContent();
+    } else {
+      this.props.signIn();
+    }
+  }
+  public componentDidUpdate() {
+    this.moveToContent();
+  }
+
+  public moveToContent() {
+    if (this.props.auth && this.props.auth.token) {
+      this.props.navigation.navigate('MapScreen');
+    }
   }
 
   public render() {
@@ -40,6 +53,8 @@ class WelcomeScreen extends Component<IProps> {
 }
 
 export default connect(
-  null,
+  (state) => ({
+    auth: state.auth.data,
+  }),
   { signIn },
 )(WelcomeScreen);
